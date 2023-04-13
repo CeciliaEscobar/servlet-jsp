@@ -19,7 +19,17 @@ import java.io.IOException;
 public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().append("Hola Mundo!");
+        
+        
+        String param = req.getParameter ("nombre");
+        if(param == null){
+            resp.getWriter().append("Hola, como estas?");
+        }else{
+            String saludo = "Hola," + param + "!";
+            resp.getWriter().append(saludo);
+        }
+        
     }
 
 }
+  
