@@ -21,14 +21,17 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         
-        String param = req.getParameter ("nombre");
+       /* String param = req.getParameter ("nombre");
         if(param == null){
             resp.getWriter().append("Hola, como estas?");
         }else{
             String saludo = "Hola," + param + "!";
             resp.getWriter().append(saludo);
-        }
+        }*/
+       
+       req.setAttribute("name", "Cecilia");
         
+       req.getServletContext().getRequestDispatcher("/paginainicio.jsp").forward(req,resp);
     }
 
 }
